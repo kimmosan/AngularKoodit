@@ -1,0 +1,40 @@
+<!doctype html>
+<!-- Use ngApp in html element to auto-bootstrap angularjs -->
+<html ng-app="CarAppModel">
+    <head>
+        <meta charset="utf-8">
+        <title>Hello Angular</title>
+        
+        <link rel="stylesheet" type="text/css" href="style.css">
+
+    </head>
+    <body>
+        <!--
+        <div id="container" ng_init="shoppingList=[{product:'Milk',price:'1,20€'},
+                      {product:'Apple', price:'1,30€'},
+                      {product:'Battery', price:'3,10€'},
+                      {product:'Moro-Cola', price:'0,99€'}]">
+            <input type="text" ng-model="shop_filter"></input>
+            <table data-role="table" class="ui-responsive ui-shadow">
+                <thead>
+                    <tr>
+                        <th>Product</th>
+                        <th>Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng_repeat="item in shoppingList | filter:shop_filter">
+                        <td>{{item.product}}</td>
+                        <td>{{item.price}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div> -->
+        <div ng-view>
+
+        </div>
+        <script src="angular.js"></script>
+        <script src="angular-route.js"></script>
+        <script src="myScript.js"></script>
+    </body>
+</html>
