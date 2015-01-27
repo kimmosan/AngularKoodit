@@ -1,0 +1,19 @@
+<div>
+    <h3>Products here</h3>
+    <table class="prd_table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="product in products">
+                <td>{{product.name}}</td>
+                <td>{{product.price}}</td>
+            </tr>
+        </tbody>
+    </table>
+    
+    <a href="/add">Add a product</a>
+</div>
