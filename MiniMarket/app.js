@@ -5,6 +5,7 @@ var user = require('./user.js');
 var app = express();
 
 //this function is executed for every request
+//must be declared before any other middleware
 app.use(function(req,res,next){
     //check e.g. user session here
     //console.log("---");
@@ -15,7 +16,7 @@ app.use(function(req,res,next){
 app.use('/data', user);
 
 app.use('/add', function(){
-   console.log("nahka"); 
+   console.log("/add"); 
 });
 
 app.use(express.static(path.join(__dirname, 'public')));
