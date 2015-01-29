@@ -6,7 +6,8 @@ myModule.directive("myOwnDirective", function(){
         restrict: "A",
         scope: {
             temp:"@",
-            city:"@"
+            city:"@",
+            kaupunki:"@"
             },
         templateUrl:"myOwnDirective.html",
         controller: "DirectiveController"
@@ -14,10 +15,10 @@ myModule.directive("myOwnDirective", function(){
 });
 
 myModule.controller("DirectiveController", function($scope, $resource){
-    var resurssi = $resource("http://api.openweathermap.org/data/2.5/weather?q=:kaupunki");
+    var resurssi = $resource("http://api.openweathermap.org/data/2.5/weather?q=:kaupunki",{kaupunki:$scope.kaupunki});
     
     var data = resurssi.get(function(){
-        $scope.temp = data.main.temp;
+        $scope.temp = data.main.temp - 273.15;
         $scope.city = data.name;    
     });
 

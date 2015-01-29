@@ -1,5 +1,16 @@
 <div>
     <p>Add products here</p>
+    <form>
+        <fieldset>
+            <legend>New product</legend>
+            <!-- These ng-model names comes from the $scope defined in the controller -->
+            <input ng-model="product.name" type="text" placeholder="Name"/>
+            <br><br>
+            <input ng-model="product.price" type="text" placeholder="Price"/>
+            <br><br>
+            <button ng-click="product.post_product()">Save product</button>
+        </fieldset>
+    </form>
     
     <a href="/">Go back to shop</a>
 </div>

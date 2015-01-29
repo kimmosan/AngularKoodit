@@ -1,23 +1,37 @@
 <div>
-    <h3>Products here</h3>
+    <!--
     <input type="text" ng-model="name"/>
     <div my-directive1></div>
     <div my-directive2 kissa="{{jotain}}" products="products"></div>
+    <hr>
+    -->
     <div my-own-directive kaupunki="Kemi,fi"></div>
-    <table class="prd_table">
-        <thead>
+    
+    <input type="search" ng-model="q" placeholder="filter goods..." />
+    <p ng-show="products.length === 0">No products, no deal!</p>
+    <table ng-show="products.length > 0" class="prd_table">
+        <thead style="background-color: #AAEEAA">
             <tr>
                 <th>Name</th>
                 <th>Price</th>
+                <th>Jotain</th>
+                <th>Visible?</th>
+                <th>Delete</th>
             </tr>
         </thead>
         <tbody>
-            <tr ng-repeat="product in products">
+            <tr ng-repeat="product in products | filter:q as results">
                 <td>{{product.name}}</td>
                 <td>{{product.price}}</td>
+                <td>{{jotain}}</td>
+                <td ng-show="isVisible">!</td>
+                <td><button ng-click="deleteProduct($index)">Delete</button></td>
             </tr>
         </tbody>
     </table>
-    
+    <br>
     <a href="/add">Add a product</a>
+    <br>
+    <br>
+    <button ng-click="next()">Add a product</button>
 </div>
